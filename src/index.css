@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Inter', sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-full: 9999px;
+}
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 11%;
+  --card-border: 0 0% 82%;
+  --border: 0 0% 82%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 43%;
+  --primary: 211 100% 44%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 11%;
+  --accent: 211 100% 44%;
+  --accent-foreground: 0 0% 100%;
+  --input: 0 0% 82%;
+  --ring: 211 100% 44%;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 11%;
+  --card-foreground: 0 0% 100%;
+  --card-border: 0 0% 23%;
+  --border: 0 0% 23%;
+  --muted: 0 0% 11%;
+  --muted-foreground: 0 0% 57%;
+  --primary: 211 100% 58%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 11%;
+  --secondary-foreground: 0 0% 100%;
+  --input: 0 0% 23%;
+  --ring: 211 100% 58%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased font-sans selection:bg-primary/20 selection:text-primary;
+    scroll-behavior: smooth;
+  }
+}
