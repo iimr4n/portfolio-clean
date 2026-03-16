@@ -1,27 +1,30 @@
 import { motion } from "framer-motion";
-import { Github, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    name: "AI Chat Assistant",
+    name: "Mint Minded",
     description:
-      "A conversational AI assistant built with Python and natural language processing. Supports multi-turn conversations and context-aware responses.",
-    tags: ["Python", "NLP", "Machine Learning", "Flask"],
-    github: "https://github.com/iimr4n",
+      "A finance education platform focused on long-term investing and calm financial decision-making.",
+    tags: ["React", "HTML", "CSS", "JavaScript"],
+    link: "https://mintminded.netlify.app",
+    linkLabel: "Visit Site",
   },
   {
-    name: "Data Visualization Dashboard",
+    name: "Planr",
     description:
-      "An interactive dashboard for exploring and visualizing datasets. Features real-time charts, filters, and export functionality.",
-    tags: ["React", "Pandas", "NumPy", "Recharts"],
-    github: "https://github.com/iimr4n",
+      "A dark-themed scheduling app with color-coded events for clear and organized planning.",
+    tags: ["React", "TypeScript", "Tailwind CSS"],
+    link: null,
+    linkLabel: null,
   },
   {
     name: "Portfolio Website",
     description:
-      "A clean, minimal personal portfolio built with React and Tailwind CSS. Deployed on Cloudflare Pages with a custom domain.",
-    tags: ["React", "Tailwind CSS", "Vite", "Cloudflare"],
-    github: "https://github.com/iimr4n/Portfolio-imran",
+      "Personal portfolio built with React, TypeScript and Tailwind CSS. Deployed on Cloudflare Pages with a custom domain.",
+    tags: ["React", "TypeScript", "Tailwind CSS"],
+    link: "https://iimr3n.in",
+    linkLabel: "Visit Site",
   },
 ];
 
@@ -52,22 +55,23 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="bg-card border border-border rounded-2xl p-8 hover:border-foreground/20 transition-all group"
+              className="bg-card border border-border rounded-2xl p-8 hover:border-foreground/20 transition-all"
             >
               <div className="flex items-start justify-between gap-4 mb-4">
                 <h4 className="text-xl font-semibold text-foreground">
                   {project.name}
                 </h4>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors shrink-0"
-                >
-                  <Github size={16} />
-                  View on GitHub
-                  <ArrowUpRight size={14} />
-                </a>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors shrink-0"
+                  >
+                    {project.linkLabel}
+                    <ArrowUpRight size={14} />
+                  </a>
+                )}
               </div>
 
               <p className="text-muted-foreground leading-relaxed mb-6">
